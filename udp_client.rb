@@ -60,7 +60,7 @@ module UDPTester
       case @command
       when 'test'
         "#{rand(0..100000)}"
-      when 'wsnd'
+      when 'bytes'
         bytes
       else
         raise ArgumentError.new "Unsupported Payload Format"
@@ -73,8 +73,6 @@ end
 command = ARGV[0]
 hex_bytes = '57534e440308f10000000016b001020172ff0057534e4403eb8adea3040016b0060104ac9f8f5302b10204000000000271430101ff0202960bff03020f000207ff02fbffff04024609020410ff0a04d71d0600ff0602760dffe8'
 client = UDPTester::Client.new(hex_bytes, command)
-# Single deliver
-# client.deliver
 
 # Loop Single deliver
 client.loop_deliver
